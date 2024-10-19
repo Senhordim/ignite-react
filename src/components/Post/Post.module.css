@@ -1,0 +1,27 @@
+.post {
+    background: var(--gray-800);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.info_author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info_author strong {
+    display: block;
+}
+
+.content {
+    margin-top: 1rem;
+}
