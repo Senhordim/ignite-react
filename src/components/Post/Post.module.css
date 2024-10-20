@@ -64,3 +64,67 @@
     text-decoration: underline;
     color: var(--green-300);
 }
+
+/* form */
+
+
+
+.commentForm {
+    width: 100%;
+    border-top: 1px solid var(--gray-700);
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.commentForm > strong {
+    color: var(--gray-100);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.commentForm textarea {
+    width: 100%;
+    background: var(--gray-900);
+    border: 1px solid var(--green-500);
+    border-radius: 8px;
+    padding: 1rem;
+    resize: none;
+    height: 6rem;
+    color: var(--gray-100);
+}
+
+.commentForm textarea::placeholder {
+    color: var(--gray-300);
+}
+
+.commentForm footer {
+    visibility: hidden;
+    max-height: 0;
+}
+
+.commentForm:focus-within footer {
+    visibility: visible;
+    max-height: none;
+}
+
+.commentForm button[type=submit] {
+    margin-top: 1rem;
+    align-self: flex-start;
+    padding: 1rem 1.5rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--green-500);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.commentForm button[type=submit]:hover {
+    background: var(--green-300);
+}
+
+
