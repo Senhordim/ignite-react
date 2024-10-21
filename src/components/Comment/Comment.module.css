@@ -1,0 +1,92 @@
+.comment {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.commentBox {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.commentContent {
+    background: var(--gray-700);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.commentContent p {
+    margin-top: 1rem;
+    color: var(--gray-300);
+}
+
+.commentHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.commentInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.commentInfo strong {
+    color: var(--gray-100);
+    line-height: 1.6;
+    font-size: 0.875rem;
+}
+
+.commentInfo span {
+    color: var(--gray-400);
+    line-height: 1.6;
+    font-size: 0.75rem;
+}
+
+.commentDeleteIcon {
+    background-color: transparent;
+    color: var(--gray-400);
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    border-radius: 2px;
+}
+
+.commentDeleteIcon:HOVER {
+    color: var(--red-500);
+}
+
+.commentActions {
+    margin-top: 1rem;
+
+}
+
+.commentActions button {
+    background: transparent;
+    border: none;
+    line-height: 0;
+    color: var(--gray-400);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 2px;
+
+}
+
+.commentActions button:hover {
+    color: var(--green-300);
+}
+
+.commentActions button svg {
+    margin-right: 0.5rem;
+}
+
+.commentActions button span::before {
+    content: "\2022";
+    padding: 0 0.25rem;
+}

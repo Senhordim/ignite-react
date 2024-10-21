@@ -1,4 +1,5 @@
 import Avatar from '../Avatar'
+import Comment from '../Comment'
 import styles from './Post.module.css'
 
 export function Post() {
@@ -38,19 +39,25 @@ export function Post() {
         </div>
 
             
-            <form className={styles.commentForm}>
-                <strong>Deixe seu feedback</strong>
-                <textarea 
-                    placeholder='Comente algo sobre esse post' 
-                    name='comment'
-                ></textarea>
-                <footer>
-                    <button type='submit'>Comentar</button>
-                </footer>
-                
-            </form>
+        <form className={styles.commentForm}>
+            <strong>Deixe seu feedback</strong>
+            <textarea 
+                placeholder='Comente algo sobre esse post' 
+                name='comment'
+            ></textarea>
+            <footer>
+                <button type='submit'>Comentar</button>
+            </footer>
+        </form>
 
+        <div className={styles.commentList}>
+            <Comment />
+            <Comment />
+            <Comment />
+            <Comment />
+        </div>
         
+
     </article>
   )
 }
