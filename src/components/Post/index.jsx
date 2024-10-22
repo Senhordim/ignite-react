@@ -1,48 +1,74 @@
+import { format, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+
 import Avatar from '../Avatar'
 import Comment from '../Comment'
 import styles from './Post.module.css'
 
-export function Post() {
+export function Post({ author, content, published }) {
+  // const publishedDateFormated = format(
+  //   published, "d 'de' LLLL 'as' HH:mm'h'", {
+  //     locale: ptBR
+  // });
+
+  // const publishedDateRelativeToNow = formatDistanceToNow(published, {
+  //   locale: ptBR,
+  //   addSuffix: true
+  // })
+
   return (
     <article className={styles.post}>
         <header>
-            <div className={styles.author}>
-                <Avatar 
-                    src='https://avatars.githubusercontent.com/u/212854?v=4' 
-                />
-                <div className={styles.authorInfo}>
-                    <strong>Diego Collares</strong>
-                    <span>Web Developer</span>
-                </div>
-            </div>
-            <time 
-                title='19 de Outubro de 2024 as 08:14' 
-                dateTime="2024-19-10 08:14:30"
-            >
-                Publicado a 1h atrás
-            </time>
-        </header>
+          <div className={styles.author}>
+              <Avatar
+                  src={author.avatarUrl}
+              />
+              <div className={styles.authorInfo}>
+                  <strong>{author.name}</strong>
+                  <span>{author.role}</span>
+              </div>
+          </div>
+          <time
+            title={'publishedDateFormated'}
+            dateTime={'publishedDateRelativeToNow'}
+          >
+            {/* {publishedDateRelativeToNow} */}
+          </time>
+      </header>
 
         <div className={styles.content}>
-            <p>Fala galeraa 👋</p>
+            {
+              content.map((item, index) => {
+                if (item.type === 'paragraph') {
+                  return <p key={index}>{item.content}</p>
+                }
 
-            <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. 
-                O nome do projeto é DoctorCare 🚀</p>
+                if (item.type === 'link') {
+                  return (
+                    <>
+                      <a href={item.content} key={index}>{item.content}</a><br />
+                    </>
+                  )
+                }
 
-            <p>👉 {''}<a href="#">jane.design/doctorcare</a></p>
+                if (item.type === 'hashtags') {
+                  return item.content.map((hashtag, index) => (
+                   <>
+                     <a href="#" key={index}>{hashtag}</a>{' '}
+                   </>
+                  ))
+                }
 
-            <p>
-                <a href="#">#novoprojeto</a>{' '}
-                <a href="#">#nlw</a>{' '}
-                <a href="#">#rocketseat</a>
-            </p>
+                return null
+              })
+            }
         </div>
 
-            
+
         <form className={styles.commentForm}>
             <strong>Deixe seu feedback</strong>
-            <textarea 
-                placeholder='Comente algo sobre esse post' 
+            <textarea
+                placeholder='Comente algo sobre esse post'
                 name='comment'
             ></textarea>
             <footer>
@@ -56,7 +82,7 @@ export function Post() {
             <Comment />
             <Comment />
         </div>
-        
+
 
     </article>
   )
